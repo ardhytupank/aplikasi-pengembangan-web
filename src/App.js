@@ -1,247 +1,150 @@
 import React, { Component } from 'react';
 import './css/bootstrap.min.css';
 import './App.css';
-// import Home from './views/Home/Home';
-// import About from './views/About/About';
-// import Help from './views/Help/Help';
-// import Profil from './views/Profil/Profil';
+import logo from './logo.svg';
+import Home from './views/Home/Home';
+import About from './views/About/About';
+import Help from './views/Help/Help';
+import Card from './components/Card/Card';
+import Input from './components/Input/Input';
 
-//import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+export default class App extends Component {
 
-class App extends Component {
-
-  //ROUTER
   render() {
-    let cities1 = ["Medan", "Banda Aceh", "Padang", "Kabanjahe"];
-    let cities2 = ["P. Siantar", "Balige", "Tebing Tinggi"];
-    let cities3 = ["Jakarta", "Bandung", "Surabaya", "Semarang"];
-
-    cities1[1] = cities2[2];
-    cities2[1] = "Tarutung";
-    cities1 = cities3;
-    cities3.unshift("Palembang");
-
     return (
 
-      <div>
-        Cities 1 :
-        <ul>
-          {cities1.map((item, index) => (
-            <li>Indeks ke - {index} : {item}</li>
-          ))}
-        </ul>
-
-        Cities 2 :
-        <ul>
-          {cities2.map((item, index) => (
-            <li>Indeks ke - {index} : {item}</li>
-          ))}
-        </ul>
-
-        Cities 3 :
-        <ul>
-          {cities3.map((item, index) => (
-            <li>Indeks ke - {index} : {item}</li>
-          ))}
-        </ul>
-      </div>
-    )
+      <Card.Container>
+        <Card.Header>My Card</Card.Header>
+        <Card.Body>
+          <p>Build encapsulated components that manage their own state, then compose them to make complex UIs.</p>
+        </Card.Body>
+      </Card.Container>
+    );
   }
-
-  // <Router>
-  //   <div>
-  //     <Link to="/home">Home</Link>
-  //     <Link to="/about">About</Link>
-  //     <Link to="/help">Help</Link>
-  //     <Link to="/profil/Budi">Budi</Link>
-  //     <Link to="/profil/Ali">Ali</Link>
-  //     <Link to="/profil/Susi">Susi</Link>
-
-  //     <Route path="/" exact component={Home}></Route>
-  //     <Route path="/home" component={Home}></Route>
-  //     <Route path="/about" component={About}></Route>
-  //     <Route path="/help" component={Help}></Route>
-  //     <Route path="/profil/:nama" component={Profil} />
-  //   </div>
-  // </Router>
-  //   )
-  // }
-
-  //FUNCTION
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     mahasiswa: [],
-  //     nama: null,
-  //     nim: null,
-  //     nilai: null
-  //   }
-  // }
-
-  // setValueState(event) {
-  //   this.setState({
-  //     [event.target.name]: event.target.value
-  //   })
-  // }
-
-  // addData() {
-  //   var data_tmp = this.state.mahasiswa;
-  //   data_tmp.push({ nim: this.state.nim, nama: this.state.nama, nilai: this.state.nilai });
-  //   this.setState({
-  //     mahasiswa: data_tmp
-  //   })
-  // }
-
-  // deleteData(index) {
-  //   var data_tmp = this.state.mahasiswa;
-  //   data_tmp.splice(index, 1);
-  //   this.setState({
-  //     mahasiswa: data_tmp
-  //   })
-  // }
-
-  // render() {
-  //   return (
-  //     <div className="container">
-  //       <div className="form-container">
-  //         <div className="form-group">
-  //           <label>Nim:</label>
-  //           <input type="text" name="nim" value={this.state.nim} onChange={this.setValueState.bind(this)} className="form-control"></input>
-  //         </div>
-  //         <div className="form-group">
-  //           <label>Nama:</label>
-  //           <input type="text" name="nama" value={this.state.nama} onChange={this.setValueState.bind(this)} className="form-control"></input>
-  //         </div>
-  //         <div className="form-group">
-  //           <label>Nilai:</label>
-  //           <input type="number" min="0" name="nilai" value={this.state.nilai} onChange={this.setValueState.bind(this)} className="form-control"></input>
-  //         </div>
-  //         <button onClick={this.addData.bind(this)} type="button" className="btn btn-primary">
-  //           Submit
-  //         </button>
-  //       </div>
-  //       <br />
-  //       {/* {cetak data mahasiswa ke tabel} */}
-  //       <table className="table">
-  //         <thead>
-  //           <tr>
-  //             <th>No.</th>
-  //             <th>Nim</th>
-  //             <th>Nama</th>
-  //             <th>Nilai</th>
-  //             <th>#</th>
-  //           </tr>
-  //         </thead>
-  //         <tbody>
-  //           {this.state.mahasiswa.map((mhs, index) => (
-  //             <tr key={index}>
-  //               <td>{index + 1}</td>
-  //               <td>{mhs.nim}</td>
-  //               <td>{mhs.nama}</td>
-  //               <td>{mhs.nilai}</td>
-  //               <td>
-  //                 <button onClick={this.deleteData.bind(this, index)} className="btn btn-danger btn-sm">
-  //                   Hapus
-  //                 </button>
-  //               </td>
-  //             </tr>
-  //           ))}
-  //         </tbody>
-  //       </table>
-  //     </div>
-  //   )
-  // }
-
-  //MULTIDIMENSIONAL ARRAY
-  // render() {
-  //   var data = [
-  //     { nama: "Budi", nilai: 80 },
-  //     { nama: "Ali", nilai: 85 },
-  //     { nama: "Susi", nilai: 87 }
-  //   ]
-  //   return (
-  //     <table className="table">
-  //       <thead>
-  //         <tr>
-  //           <th>No.</th>
-  //           <th>Nama</th>
-  //           <th>Nilai</th>
-  //         </tr>
-  //       </thead>
-  //       <tbody>
-  //         {data.map((item, index) => (
-  //           <tr key={index}>
-  //             <td>{index + 1}</td>
-  //             <td>{item.nama}</td>
-  //             <td>{item.nilai}</td>
-  //           </tr>
-  //         ))}
-  //       </tbody>
-  //     </table>
-  //   )
-  // }
-
-  //ASSOCIATIVE/OBJECT ARRAY
-  // render() {
-  //   var mahasiswa = {
-  //     nama: "Susi",
-  //     nim: "162110001",
-  //     email: "susi@mikroskil.ac.id"
-  //   }
-  //   return (
-  //     <table>
-  //       <tr>
-  //         <td>Nim</td>
-  //         <td>:</td>
-  //         <td>{mahasiswa.nim}</td>
-  //       </tr>
-  //       <tr>
-  //         <td>Nama</td>
-  //         <td>:</td>
-  //         <td>{mahasiswa.nama}</td>
-  //       </tr>
-  //       <tr>
-  //         <td>Nim</td>
-  //         <td>:</td>
-  //         <td>{mahasiswa.email}</td>
-  //       </tr>
-  //     </table>
-  //   )
-  // }
-
-  //ARRAY
-  // render() {
-  //   var angka = [1, 2, 3]
-  //   var nama = ["Budi", "Ali", "Susi"]
-  //   var campuran = ["Budi", 1, "Ali", 2, "Susi", 3]
-
-  //   return (
-  //     <div>
-  //       Isi array angka :
-  //       <ul>
-  //         {angka.map((item, index) => (
-  //           <li>Indeks ke - {index} : {item}</li>
-  //         ))}
-  //       </ul>
-
-  //       Isi array nama :
-  //       <ul>
-  //         {nama.map((item, index) => (
-  //           <li>Indeks ke - {index} : {item}</li>
-  //         ))}
-  //       </ul>
-
-  //       Isi array campuran :
-  //       <ul>
-  //         {campuran.map((item, index) => (
-  //           <li>Indeks ke - {index} : {item}</li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //   );
-  // }
-
 }
 
-export default App;
+
+//Props
+// function Message(props) {
+//   return <p>Hello {props.name},</p>;
+// }
+
+//Latihan 4.6
+// class App extends Component {
+
+//   render() {
+//     return (
+//       <Input>
+//         Percobaan
+//         {/* <--- Children dari component Card */}
+//       </Input>
+//     )
+//   }
+// }
+
+// constructor() {
+//   super();
+//   //Inisial state view
+//   this.state = {
+//     view: 'home'
+//   }
+// }
+
+// render() {
+//   //Functional component view untuk mengatur component yang tampil
+//   const View = () => {
+//     if (this.state.view == 'home')
+//       return <Home name="Eden Hazard" />
+//     else if (this.state.view == 'about')
+//       return <About />
+//     else if (this.state.view == 'help')
+//       return <Help />
+//   }
+
+//   return (
+//     <div>
+//       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+//         <ul className="navbar-nav">
+//           <li className="nav-item">
+//             <a onClick={() => this.setState({ view: 'home' })} className="nav-link" href="#">Home</a>
+//           </li>
+//           <li className="nav-item">
+//             <a onClick={() => this.setState({ view: 'about' })} className="nav-link" href="#">About</a>
+//           </li>
+//           <li className="nav-item">
+//             <a onClick={() => this.setState({ view: 'help' })} className="nav-link" href="#">Help</a>
+//           </li>
+//         </ul>
+//       </nav>
+
+//       <View />
+//     </div>
+//   )
+
+// }
+
+// render() {
+//   return (
+//     <div>
+//       <Message name="Ulrich" />
+//       <Home name="Muhammad Salah" />
+//     </div>
+//   )
+// }
+
+// }
+
+
+//Class Component
+// function Message() {
+//   return "Pesan didalam Component";
+// }
+
+// class App extends Component {
+
+//   render() {
+//     return (
+//       <div>
+//         <Message />
+//         <Home />
+//       </div>
+//     );
+//   }
+// }
+
+//FUNCTIONAL COMPONENTS
+// function Message() {
+//   return <p>Hello from message component</p>
+// }
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Message />
+//       </div>
+//     )
+//   }
+// }
+
+//FUNCTION
+// function sayHello() {
+//   return "Hello World";
+// }
+
+// class App extends Component {
+//   bilangHalo() {
+//     return "Halo Dunia";
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         <p>sayHello : <b>{sayHello()}</b></p>
+//         <p>bilangHalo : <b>{this.bilangHalo()}</b></p>
+//       </>
+//     )
+//   }
+// }
+
+export default App
