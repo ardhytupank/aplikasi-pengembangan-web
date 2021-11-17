@@ -1,28 +1,36 @@
-import React, { Component } from 'react';
-import {
+import React, {Component} from 'react';
+import{
   BrowserRouter as Router,
   Route,
-  Link,
-  Switch
+  Link, Switch,
+  Redirect
 } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
+class App extends Component{
+  constructor(){
+    super()
+    this.state={
+      isAuth : false
+    }
+  }
+  render(){
+    return(
       <Router>
         <div>
-          <ul style={{ listStyle: 'none' }}></ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/news'>News</Link></li>
+          <ul style={{listStyle: 'none'}}>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/news'>News</Link></li>
+            <li><Link to='/profile'>Profile</Link></li>
+          </ul>
+          <Switch>
+            <Route path='/' exact render={()=><div>Ini adalah halaman Home</div>} />
+            <Route path='/news' render={()=><div>Ini adalah halaman News</div>} />
+            <Route path='/login' render={()=><div><button>Login</button></div>} />
+            <Route path='/profile' render={()=>this.state.isAuth ?<div>Ini adalah halaman Profile</div> : <Redirect to='/login' />} />
+          </Switch>
         </div>
-
-        <Switch>
-          <Route path='/' exact render={() => <div>Ini halaman Home</div>}></Route>
-          <Route path='/news' render={() => <div>Ini halaman News</div>}></Route>
-        </Switch>
       </Router>
     )
   }
 }
-
-export default App
+export default App;
